@@ -17,7 +17,6 @@ jobs:
     - name: Create a Simple Node Js Application
       run: mkdir project  && cd project && git clone https://github.com/akshay-achar/simple-node-hello-world.git && mv simple-node-hello-world/* ../project/
 
-    steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file node/Dockerfile --tag my-image-name:$(date +%s)
