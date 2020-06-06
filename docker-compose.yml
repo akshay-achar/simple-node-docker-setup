@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  node_docker:
+    image: akshayachar2011/node_web_app:latest
+    container_name: node_apache
+    volumes:
+      - type: bind
+        source: ./project/
+        target: /usr/src/app
+    tty: true
+    ports:
+      - 8124:8124
+    networks:
+      akshay_karkala:
+        ipv4_address: 172.16.0.5
+
+networks:
+  akshay_karkala:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24      
+
+  
